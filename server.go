@@ -2,22 +2,22 @@ package main
 
 import (
 	"fmt"
+	"github.com/armon/go-socks5"
+	"github.com/caarlos0/env/v6"
 	"log"
 	"net"
 	"os"
 	"time"
-	"github.com/armon/go-socks5"
-	"github.com/caarlos0/env/v6"
 )
 
 type params struct {
-	User            string    `env:"PROXY_USER" envDefault:""`
-	Password        string    `env:"PROXY_PASSWORD" envDefault:""`
-	Port            string    `env:"PROXY_PORT" envDefault:"1080"`
-	AllowedDestFqdn string    `env:"ALLOWED_DEST_FQDN" envDefault:""`
-	AllowedIPs      []string  `env:"ALLOWED_IPS" envSeparator:"," envDefault:""`
-	ListenIP 		string 	  `env:"PROXY_LISTEN_IP" envDefault:"0.0.0.0"`
-	RequireAuth		bool      `env:"REQUIRE_AUTH" envDefault:"true"`
+	User            string   `env:"PROXY_USER" envDefault:""`
+	Password        string   `env:"PROXY_PASSWORD" envDefault:""`
+	Port            string   `env:"PROXY_PORT" envDefault:"1080"`
+	AllowedDestFqdn string   `env:"ALLOWED_DEST_FQDN" envDefault:""`
+	AllowedIPs      []string `env:"ALLOWED_IPS" envSeparator:"," envDefault:""`
+	ListenIP        string   `env:"PROXY_LISTEN_IP" envDefault:"0.0.0.0"`
+	RequireAuth     bool     `env:"REQUIRE_AUTH" envDefault:"true"`
 }
 
 func main() {
